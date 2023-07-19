@@ -18,7 +18,9 @@ func main() {
 
 	// Registers default request handler for the url patterns
 	http.Handle("/", r)
-	http.ListenAndServe(":8080", nil)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err) // This will cause our server to crash with an error message if it
+	}
 
 }
 
